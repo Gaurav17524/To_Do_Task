@@ -123,6 +123,16 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
+.clearAll {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.clearAll:hover {
+    color: lightcoral;  
 </style>
 </head>
 <body>
@@ -131,6 +141,7 @@ input {
   <h2 style="margin:5px">My To Do List</h2>
   <input type="text" id="myInput" placeholder="Title...">
   <span onclick="newElement()" class="addBtn">Add</span>
+  <a class="clearAll" id="clearAll">Clear All</a>
 </div>
 
 <ul id="myUL">
@@ -197,6 +208,10 @@ function newElement() {
       div.style.display = "none";
     }
   }
+}
+  document.getElementById('clearAll').addEventListener('click', handleClearAll);
+function handleClearAll(e) {
+    document.querySelector('ul').innerHTML = '';
 }
 </script>
 
